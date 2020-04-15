@@ -1,0 +1,3 @@
+[submodule "FMF-Essentials"]
+	path = FMF-Essentials
+	url = https://github.com/gregpr07/FMF-Essentials
