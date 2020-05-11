@@ -13122,7 +13122,7 @@ $$ R_x = R_0 \frac{a}{l-a} $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
@@ -13150,7 +13150,7 @@ $$ R_x = R_0 \frac{a}{l-a} $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#podatki za prvo zico</span>
@@ -13278,7 +13278,7 @@ tako, da narišemo graf.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">podatki_zica1</span><span class="p">[</span><span class="s1">&#39;R0&#39;</span><span class="p">]</span>
@@ -13329,7 +13329,7 @@ Name: R0, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -13343,7 +13343,7 @@ Name: R0, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">draw_calc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">num</span><span class="p">):</span>
@@ -13380,7 +13380,7 @@ Name: R0, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">omega1</span> <span class="o">=</span> <span class="n">draw_calc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -13428,8 +13428,160 @@ b = 186.3626249672531 +- 59.71967980060212
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Upor neznanega upornika $R_x = 5151 \pm 58 \: \Omega$.
+<p>Upor neznanega upornika $R_x = 6151 \pm 58 \: \Omega$.
 Napaka je izračunana po metodi MSQE.</p>
+<p>To lahko preverimo še z tabelo negotovosti.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">podatki_zica1</span><span class="p">[</span><span class="s1">&#39;R0&#39;</span><span class="p">])):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;R_0&#39;</span><span class="p">,</span> <span class="n">podatki_zica1</span><span class="p">[</span><span class="s1">&#39;R0&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">podatki_zica1</span><span class="p">[</span><span class="s1">&#39;R0&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mf">0.01</span><span class="p">),</span> <span class="c1"># en procent napake</span>
+        <span class="p">(</span><span class="s1">&#39;l_a&#39;</span><span class="p">,</span> <span class="n">podatki_zica1</span><span class="p">[</span><span class="s1">&#39;l-a&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="mf">0.1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">podatki_zica1</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="mf">0.1</span><span class="p">),</span>
+    <span class="p">]</span>
+    
+    <span class="n">negotovost</span> <span class="o">=</span> <span class="n">Negotovost</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s1">&#39;R_0 * a / l_a&#39;</span><span class="p">,</span><span class="n">floating_points</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">negotovost</span><span class="o">.</span><span class="n">draw_table</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\Omega&#39;</span><span class="p">,</span><span class="n">text_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span><span class="n">variable</span><span class="o">=</span><span class="s1">&#39;R_x&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">negotovost</span><span class="o">.</span><span class="n">calculate_error</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>table.dataframe{font-size: 16px;}</style>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_latex output_subarea ">
+$R_x=\frac{R_{0} a}{l_{a}}$
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>$\frac{\partial R_x}{\partial x_i}$</th>
+      <th>$\sigma_i$</th>
+      <th>$\sigma_i \cdot \frac{\partial R_x}{\partial x_i}$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>$R_{0}$</th>
+      <td>$\frac{a}{l_{a}}$</td>
+      <td>20.0</td>
+      <td>6.5462E01</td>
+    </tr>
+    <tr>
+      <th>$l_{a}$</th>
+      <td>$- \frac{R_{0} a}{l_{a}^{2}}$</td>
+      <td>1.0000E-01</td>
+      <td>-2.7505E01</td>
+    </tr>
+    <tr>
+      <th>$a$</th>
+      <td>$\frac{R_{0}}{l_{a}}$</td>
+      <td>1.0000E-01</td>
+      <td>8.4034E00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_latex output_subarea ">
+$R_x = (6.5462E03 \pm 7.1501E01) \:\Omega$
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(6546.218487394958, 71.5013687966239)
+(6419.254658385093, 67.8595043699262)
+(6673.854447439353, 69.9562406975954)
+(6457.399103139013, 67.1200990733628)
+(6292.089249492901, 65.3456008510976)
+(6358.778625954199, 66.0993460013202)
+(6280.639431616343, 65.3529228107332)
+(6313.432835820896, 65.7140158067336)
+(6231.404958677686, 65.2865447236737)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Iz tabele negotovosti opazimo, da največ k napaki prispeva 1% napake pri znanem uporu.</p>
 
 </div>
 </div>
@@ -13444,7 +13596,7 @@ Napaka je izračunana po metodi MSQE.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#podatki za uporovno zico</span>
@@ -13544,7 +13696,7 @@ Napaka je izračunana po metodi MSQE.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">uporovna_zica</span><span class="p">[</span><span class="s1">&#39;R0&#39;</span><span class="p">]</span>
@@ -13589,7 +13741,7 @@ Name: R0, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">omega_zica</span> <span class="o">=</span> <span class="n">draw_calc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;uporovna&#39;</span><span class="p">)</span>
@@ -13646,7 +13798,7 @@ $$ \zeta = \frac{R S}{l} $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
@@ -13779,14 +13931,14 @@ $$ \zeta = (1.07 \pm 0.15) \cdot 10^{-6} \: \Omega m $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Vpra&#353;anja-&amp;-odgovori">Vpra&#353;anja &amp; odgovori<a class="anchor-link" href="#Vpra&#353;anja-&amp;-odgovori">&#182;</a></h2><ol>
-<li>Kolikšna je relativna napaka rezultata, ki jo prinese nenatančno odčitavanje, če si določil lego drsnika na 0,5 mm natančno pri 1 m dolgi merilni žici?
-Odvisno kako merimo oba dela, ampak ker smo merili oba dela posebej, zato ne pride do kolerirane napake, torej se relativne napake obeh meritev samo seštejeta. ($ \delta a + \delta (l-a) $)
-Če bi x zmerili samo enkrat bi bila nato napak malo drugačna, ($\Delta a \cdot \frac{\delta(l-a)/a}{\delta a}$).</li>
+<li>Kolikšna je relativna napaka rezultata, ki jo prinese nenatančno odčitavanje, če si določil lego drsnika na 0,5 mm natančno pri 1 m dolgi merilni žici?</li>
 </ol>
+<p>Odvisno kako merimo oba dela, ampak ker smo merili oba dela posebej, zato ne pride do kolerirane napake, torej se relativne napake obeh meritev samo seštejeta. ($ \delta a + \delta (l-a) $)
+Če bi x zmerili samo enkrat bi bila nato napak malo drugačna, ($\Delta a \cdot \frac{\delta(l-a)/a}{\delta a}$).</p>
 <ol>
-<li>Kako je relativna napaka rezultata odvisna od razmerja R x /R 0 , torej od lege točke D? Katero že omenjeno navodilo sledi iz tega?
-Je enako razmerju $\frac{a}{l-a}$. Napaka razmerja je enaka napaki iz prejšnega vprašanja.</li>
+<li>Kako je relativna napaka rezultata odvisna od razmerja R x /R 0 , torej od lege točke D? Katero že omenjeno navodilo sledi iz tega?</li>
 </ol>
+<p>Je enako razmerju $\frac{a}{l-a}$. Napaka razmerja je enaka napaki iz prejšnega vprašanja.</p>
 
 </div>
 </div>
